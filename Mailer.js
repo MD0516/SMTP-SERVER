@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
 
 export async function sendMailToUser(name, email) {
   try {
-    let response =await transporter.sendMail({
+    let response = transporter.sendMail({
     from: `"Murali" <${process.env.FROM_EMAIL}>`,
     to: email,
     subject: "Thanks for contacting us!",
