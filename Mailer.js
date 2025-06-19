@@ -9,7 +9,7 @@ export async function sendMailToUser(name, email) {
 
   try {
     const response = await resend.emails.send({
-      from: `Murali <${process.env.FROM_EMAIL}>'`,
+      from: `Murali <${process.env.FROM_EMAIL}>`,
       to: email,
       subject: "Thanks for contacting us!",
       html: `
