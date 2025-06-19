@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
 
 export async function sendMailToUser(name, email) {
   await transporter.sendMail({
-    from: `"ARKFA" <${process.env.FROM_EMAIL}>`,
+    from: `"Murali" <${process.env.FROM_EMAIL}>`,
     to: email,
     subject: "Thanks for contacting us!",
     html: `
