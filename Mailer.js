@@ -13,7 +13,8 @@ const transporter = nodemailer.createTransport({
 });
 
 export async function sendMailToUser(name, email) {
-  await transporter.sendMail({
+  try {
+    let response =await transporter.sendMail({
     from: `"Murali" <${process.env.FROM_EMAIL}>`,
     to: email,
     subject: "Thanks for contacting us!",
@@ -83,10 +84,17 @@ export async function sendMailToUser(name, email) {
 
     `,
   });
+
+  console.log('Mail to User sent',response)
+  } catch (error) {
+    console.error('Mail to user Failed: ', error)
+  }
+  
 }
 
 export async function sendMailToCompany(name, email, message) {
-  await transporter.sendMail({
+  try{
+    let response = await transporter.sendMail({
     from: `"Website Bot" <${process.env.FROM_EMAIL}>`,
     to: process.env.COMPANY_EMAIL,
     subject: `New Contact Form Submission from ${name}`,
@@ -147,4 +155,8 @@ export async function sendMailToCompany(name, email, message) {
 
     `,
   });
+  console.log('Mail to Murali sent',response)
+} catch (error) {
+  console.error('Mail to Murali Failed:', error)
+}
 }
