@@ -15,7 +15,7 @@ app.use(cors({
 app.post('/api/contact', async (req, res) => {
   const { name, email, message } = req.body;
   try {
-    await sendMailToUser( name, email, message );
+    await sendMailToUser( name, email );
     await sendMailToCompany( name, email, message );
   } catch (err) {
     console.error("Email error:", err);
